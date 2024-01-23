@@ -12,8 +12,9 @@ const ItemList = ({ products }) => {
                             <Item
                                 name={p.name}
                                 description={p.description}
-                                price={p.price} 
+                                price={p.price}
                                 id={p.id}
+                                image={p.image}
                             />
                         </div>
                     </Col>
@@ -23,4 +24,4 @@ const ItemList = ({ products }) => {
     );
 };
 
-export default ItemList;
+export default React.memo(ItemList)

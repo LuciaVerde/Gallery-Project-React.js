@@ -1,44 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import LoaderComponent from '../LoaderComponent/LoaderComponent';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
-import products from '../../asyncMock';
-import { Container, Row, Col } from 'react-bootstrap';
 
 const ItemDetailContainer = () => {
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const getProducts = new Promise((resolve, reject) => {
-      if (products.length > 0) {
-        setTimeout(() => {
-          resolve(products);
-        }, 2000);
-      } else {
-        reject("No se obtuvieron productos");
-      }
-    });
+    const db = getFirestore()
 
-    getProducts
-      .then((result) => {
-        const getProductById = result.find((product) => product.id === id);
-        setProduct(getProductById);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
+    const oneProduct = doc(db, "paintings", `${id}`);
+    getDoc(oneProduct).then((snapshot) => {
+      if (snapshot.exists()) {
+        const doc = snapshot.data()
+        setProduct(doc)
+        setLoading(false)
+      }
+    })
+  }, [])
+
+  if (loading) {
+    return <LoaderComponent />
+  }
 
   return (
-    <Container className='my-5'>
-      <Row className='justify-content-center'>
-        <Col xs={12} md={5}>
-          <div className="d-flex justify-content-center">
-            {product && <ItemDetail product={product} />}
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <div>
+      {product && <ItemDetail product={product} />}
+    </div>
   );
 }
 

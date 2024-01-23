@@ -8,11 +8,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const NavBar = () => {
+
+  const logoImageURL = 'https://firebasestorage.googleapis.com/v0/b/gallery-a463c.appspot.com/o/gallery-img%2FLogo.png?alt=media&token=16d410dd-2350-432b-986b-20b4b1319306';
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Link to='/' className="text-decoration-none">
-          <Navbar.Brand>Yuliana Verde</Navbar.Brand>
+          <Navbar.Brand>
+            <img src="https://firebasestorage.googleapis.com/v0/b/gallery-a463c.appspot.com/o/gallery-img%2FLogo.png?alt=media&token=16d410dd-2350-432b-986b-20b4b1319306" alt="Logo" style={{ height: '50px', width: 'auto' }} />
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -33,7 +38,7 @@ const NavBar = () => {
               Contacto
             </Nav.Link>
           </Nav>
-          <Button variant="outline-dark"><CartWidget /></Button>
+          <Link to="/cart"> <Button variant="outline-dark"><CartWidget /></Button></Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
