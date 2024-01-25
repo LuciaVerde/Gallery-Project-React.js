@@ -3,12 +3,15 @@ import ItemCount from '../ItemCount/ItemCount'
 import { Card } from 'react-bootstrap';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import { CartContext } from '../../context/CartContext';
+import './ItemDetail.css';
+
 
 const ItemDetail = ({ product }) => {
     const [quantityAdded, setQuantityAdded] = useState(0)
-    
-    const {addItem} = useContext (CartContext)
+
+    const { addItem } = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -16,7 +19,8 @@ const ItemDetail = ({ product }) => {
         const item = {
             id: product.id,
             name: product.name,
-            price: product.price
+            price: product.price,
+            image: product.image
         };
 
         addItem(item, quantity)
@@ -24,22 +28,25 @@ const ItemDetail = ({ product }) => {
     }
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={product.image} />
-            <Card.Body>
-                <Card.Title>{product.name}</Card.Title>
-                <Card.Text>{product.description}</Card.Text>
-                <Card.Text>${product.price}</Card.Text>
-                <div className="d-flex justify-content-center">
-                    {
-                        quantityAdded > 0 ? (
-                            <Link to='/cart'> Terminar compra </Link>) :
-                            (<ItemCount initial={0} onAdd={handleOnAdd} />
-                            )
-                    }
-                </div>
-            </Card.Body>
-        </Card>
+        <div className="container cardContainer">
+            <div>
+                <h1 className="detailHeading">Detalles del producto</h1>
+            </div>
+            <Card style={{ width: '18rem', borderColor: 'black', borderRadius: 0 }}>
+                <Card.Img className="image" variant="top" src={product.image} />
+                <Card.Body className="cardBody">
+                        <Card.Title className="pb-2" >{product.name}</Card.Title>
+                        <Card.Text >Precio: ${product.price}</Card.Text>
+                    <Card.Text >{product.description}</Card.Text>
+                        {
+                            quantityAdded > 0 ? (
+                                <Link to='/cart'> <Button variant="dark"> Terminar compra </Button> </Link>) :
+                                (<ItemCount initial={0} onAdd={handleOnAdd} />
+                                )
+                        }
+                </Card.Body>
+            </Card>
+        </div>
 
     )
 }

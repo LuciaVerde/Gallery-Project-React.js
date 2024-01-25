@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
+
 const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
@@ -38,6 +39,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
+      
       {categoryId ? <ItemList products={getProductsByCategory} /> : <ItemList products={products} />}
     </div>
   );

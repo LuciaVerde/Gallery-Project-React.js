@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.container{
+    font-family: "Montserrat", sans-serif;
+}
+.formHeading{
+    font-weight: 700;
+}
+
+.petition{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.formLabel, .id{
+    font-weight: 400;
+    font-size: 1.1rem;
+}
