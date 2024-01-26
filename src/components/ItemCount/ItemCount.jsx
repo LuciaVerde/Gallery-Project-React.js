@@ -7,14 +7,16 @@ const ItemCount = ({ initial, onAdd }) => {
 
   const [quantity, setQuantity] = useState(initial)
 
+  // Función para incrementar la cantidad
   const sumar = () => {
     if (quantity < 5) {
       setQuantity(quantity + 1)
     }
   }
-
+  
+  // Función para reducir la cantidad
   const restar = () => {
-    if (quantity> 0) {
+    if (quantity > 0) {
       setQuantity(quantity - 1)
     }
   }
@@ -27,7 +29,7 @@ const ItemCount = ({ initial, onAdd }) => {
         <Button variant="white">{quantity} </Button>
         <Button variant="dark" onClick={sumar}>+</Button>
       </div>
-        <Button variant="dark" onClick={() => onAdd(quantity)} >Agregar al carrito </Button>
+      <Button variant="dark" onClick={() => onAdd(quantity)} >Agregar al carrito </Button>
     </div>
   )
 }

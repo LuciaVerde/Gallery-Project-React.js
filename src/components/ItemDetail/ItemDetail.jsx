@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
-import ItemCount from '../ItemCount/ItemCount'
-import { Card } from 'react-bootstrap';
-import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext';
+import { useContext } from 'react';
+import { useState } from 'react';
+import { Card } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import './ItemDetail.css';
 
 

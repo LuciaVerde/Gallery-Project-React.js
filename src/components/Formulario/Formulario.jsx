@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useContext } from 'react';
-import { Form, Button} from 'react-bootstrap';
-import Swal from 'sweetalert2';
+import { Form, Button } from 'react-bootstrap';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 import { CartContext } from '../../context/CartContext';
+import Swal from 'sweetalert2';
 import './Formulario.css';
 
 const Formulario = () => {
@@ -14,9 +14,11 @@ const Formulario = () => {
     const { cart } = useContext(CartContext)
 
     const db = getFirestore()
+    // Envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        // Mostrar un mensaje de éxito al usuario
         Swal.fire({
             position: "center",
             icon: "success",
@@ -25,8 +27,12 @@ const Formulario = () => {
             timer: 3000
         });
 
-        addDoc(ordersCollection, order).then(({ id }) =>
-            setOrderId(id))
+        // Agregar la orden a la colección en Firestore y manejo de errores
+        addDoc(ordersCollection, order)
+            .then(({ id }) => setOrderId(id))
+            .catch(error => {
+                console.error("Error al agregar la orden:", error);
+            });
     }
 
     const order = {
