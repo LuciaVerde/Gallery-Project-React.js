@@ -11,7 +11,7 @@ const Formulario = () => {
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
     const [orderId, setOrderId] = useState("")
-    const { cart } = useContext(CartContext)
+    const { cart, clearCart, setCart } = useContext(CartContext)
 
     const db = getFirestore()
     // Envío del formulario
@@ -29,11 +29,15 @@ const Formulario = () => {
 
         // Agregar la orden a la colección en Firestore y manejo de errores
         addDoc(ordersCollection, order)
-            .then(({ id }) => setOrderId(id))
+            .then(({ id }) => {
+                setOrderId(id);
+                clearCart();
+                setCart([]);
+            })
             .catch(error => {
                 console.error("Error al agregar la orden:", error);
             });
-    }
+    };
 
     const order = {
         cliente: { nombre, email },

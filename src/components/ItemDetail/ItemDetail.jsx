@@ -37,8 +37,8 @@ const ItemDetail = ({ product }) => {
                 <Card.Img className="image" variant="top" src={product.image} />
                 <Card.Body className="cardBody">
                         <Card.Title className="pb-2" >{product.name}</Card.Title>
+                        <Card.Text >{product.description}</Card.Text>
                         <Card.Text >Precio: ${product.price}</Card.Text>
-                    <Card.Text >{product.description}</Card.Text>
                         {
                             quantityAdded > 0 ? (
                                 <Link to='/cart'> <Button variant="dark"> Terminar compra </Button> </Link>) :
