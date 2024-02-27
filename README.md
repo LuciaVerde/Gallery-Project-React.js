@@ -1,38 +1,54 @@
 
-# Gallery 
+# Gallery Project React.js
 
-Gallery es una e-commerce desarrollada como proyecto final para el curso de React JS de Coderhouse. Consiste en una tienda de obras de arte que permite a los usuarios explorar los productos, agregarlos al carrito y completar el proceso del pedido mediante un checkout que consta de un formulario en donde el usuario debe ingresar sus datos para generar la orden.
+Gallery is a fictitious e-commerce developed as a final project for Coderhouse's React JS course. It consists of an artwork store that allows users to explore the products, add them to the cart and complete the order process through a checkout that consists of a form where the user must enter their data to place the order.
 
 
-## Como funciona
+## Description
 
-Cuando un usuario accede a la aplicación, se encuentra con un catálogo de productos que muestra imágenes, nombres y un botón para acceder a detalles. Estos productos también pueden ser visualizados por categoría.
+Upon accessing the application, users encounter a catalog of products displaying their corresponding image, name, and a button to access details. These products can also be filtered by category.
 
-Al explorar un producto en particular, se despliega información adicional, como precio y descripción. Además, se presentan opciones para ajustar la cantidad, agregar al carrito y, una vez seleccionado "terminar compra", dirigirse al carrito.
+When exploring a particular product, additional information such as price and description is displayed. Users can adjust the quantity, add to cart, and proceed to checkout.
 
-Dentro del carrito, se visualizan los productos añadidos, permitiendo tanto la modificación de cantidades como la eliminación individual de los mismos con un impacto directo en el costo total de la orden. Además, se incluyen botones para vaciar el carrito y para proceder a la compra, redirigiendo al usuario a un formulario.
+Within the cart, users can view the added products, modify quantities, and individually remove items, which directly impacts the total order cost. Additionally, there are buttons to delete the cart and proceed to payment, redirecting users to a form.
 
-En este formulario, el usuario completa su nombre y correo electrónico para finalmente generar la orden. Esta orden se almacena en la base de datos, y como respuesta, se devuelve un número de identificación de la orden para su referencia.
+In the form, users provide their name and email to finalize the order. This order is stored in the database, and in response, an order identification number is returned for reference.
 
-## Tecnologías
+## Technologies Used
 
-La aplicación se desarrolló con React Js y una librería de estilo como React Bootstrap. Se utilizó React Router Dom para establecer rutas de navegación y esta conectada a una base de datos (Firebase) de donde se obtienen los productos.
- 
+- React JS: Used for the development of the application.
 
-## Implementaciones futuras
+- React Bootstrap: Utilized for styling components and ensuring a responsive design.
 
-Para futuras mejoras, me gustaría:
+- React Router Dom: Implemented for establishing navigation routes.
 
-- Mejorar la interfaz en terminos de adaptabilidad a diferentes pantallas.
-  
-- Incorporar animaciones utilizando bibliotecas como "Animated on Scroll" y "Animate", para darle un toque dinámico a la experiencia del usuario.
+- Firebase: Connected to fetch product data from the database.
 
-- Implementar un detalle de carrito en la esquina superior derecha, bajo el icono del carrito, que se despliegue de manera instantánea cada vez que se añada un producto. Esto permitirá a los usuarios acceder rápidamente a la información esencial del carrito sin interrumpir su experiencia de navegación.
+- HTML and CSS: Basic structure and styling of the application.
 
-- Desarrollar páginas adicionales como "Nosotros" y "Contacto" y asegurarse de que la navegabilidad entre estas páginas y la página principal ("Home") sea fluida y coherente.
+- Git and GitHub: Git version control and the GitHub platform were used for collaborative development and source code management.
 
-- Implementar Local Storage para que al actualizar la página no se borre el contenido del carrito.
+- Responsive Design: The website was designed and developed using responsive design techniques to ensure an optimal experience across a variety of devices and screen sizes.
+
+## Installation and Usage
+
+1- Clone this repository to your local machine using the following command:
+
+git clone https://github.com/LuciaVerde/Gallery-Project-React.js.git 
+
+2- Navigate to the project directory: Use cd to navigate into the project directory.
+
+3- Install dependencies: Instead of npm install, use the following command to install dependencies: npm install
+
+4- Start the application: To start the application, instead of npm start, use the following command: npm run dev
+
+## Credits
+
+Developer: Lucía Verde.
+Course: React JS - Coderhouse.
+
+## Contact
+
+If you have any questions or suggestions about the project, feel free to contact me via email at lucia.verde05@gmail.com.
 
 ![Gif mostrando la navegabilidad](./src/assets/navegabilidad.gif)
-
-
